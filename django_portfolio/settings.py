@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-#import dj_database_url
+import dj_database_url
 import os
 #from dotenv import load_dotenv # type: ignore
 
@@ -80,7 +80,7 @@ WSGI_APPLICATION = "django_portfolio.wsgi.application"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 #data_url = 'postgresql://postgres:ZrAtVcBGTvoDiVnmoFKezcvItooYwthS@postgres.railway.internal:5432/railway'
-DATABASE_URL = os.getenv('postgresql://postgres:ZrAtVcBGTvoDiVnmoFKezcvItooYwthS@postgres.railway.internal:5432/railway')
+#DATABASE_URL = os.getenv('postgresql://postgres:ZrAtVcBGTvoDiVnmoFKezcvItooYwthS@postgres.railway.internal:5432/railway')
 
 # DATABASES = {
 #     'default': {
