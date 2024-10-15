@@ -18,3 +18,4 @@ regex==2021.10.23
 sqlparse==0.4.2
 tomli==1.2.2
 typing-extensions==3.10.0.2
+whitenoise==6.7.0
