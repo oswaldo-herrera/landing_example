@@ -1,5 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from portfolio.models import Project
+from portfolio.forms import ProjectForm
 
 
 def renderPosts(request):
@@ -11,3 +15,9 @@ def renderPosts(request):
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     return render(request, "post_detail.html", {"post": post})
+
+class ProjectCreateView(CreateView):
+    model = Project
+    form_class = ProjectForm
+    template_name = 'dashboard.html'
+    success_url = reverse_lazy('project_list')
