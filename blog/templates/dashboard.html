@@ -2,13 +2,127 @@
 
 {% block content %}
 
+<div class="row">
+  <div class="col">
+    <h1> Crear Imagen Header</h1>
+    <form id="form-header" method="post" enctype="multipart/form-data" class="bg-warning p-3  " action="{% url 'blog:imagen_header' %}">
+      {% csrf_token %}
+      <p>Titulo</p>
+      {{ form.title }}
+      
+      <p>Agregar Imagen</p>
+      {{ form.image }}
+      <br>
+      <button type="submit" class="btn btn-outline-success btn-sm" id="submit-header">Guardar</button>
+      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
+    </form>
+  </div>
 
-<h1>{{ view.action }} Project</h1>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save</button>
-</form>
-<a href="{% url 'home' %}">Cancel</a>
+  <div class="col">
+    <h1>{{ view.action }} Crear Producto</h1>
+    <form id="form-producto" method="post" enctype="multipart/form-data" class="bg-warning p-3 " action="{% url 'blog:crear_portafolio' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-outline-success btn-sm"  id="submit-producto">Guardar</button>
+      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const formHeader = document.getElementById("form-header");
+    const imageInputHeader = formHeader.querySelector('input[type="file"]');
+    let isSubmitting = false;
+  
+    formHeader.addEventListener("submit", function (event) {
+      // Prevenir el envío inicial del formulario solo si la imagen no es válida
+      event.preventDefault();
+  
+      // Si ya se está enviando, salir
+      if (isSubmitting) {
+        return;
+      }
+  
+      const file = imageInputHeader.files[0];
+  
+      // Validar si hay un archivo seleccionado
+      if (!file) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Por favor, selecciona una imagen.",
+        }).then(() => {
+          imageInputHeader.focus();
+        });
+        return;
+      }
+  
+      // Validar que el nombre del archivo no contenga espacios
+      if (file.name.includes(" ")) {
+        Swal.fire({
+          icon: "error",
+          title: "Nombre de archivo inválido",
+          text: "El nombre del archivo no debe contener espacios. Por favor, renómbralo.",
+        }).then(() => {
+          imageInputHeader.value = ""; // Limpiar el input de archivo
+          imageInputHeader.focus(); // Regresar el foco al input
+        });
+        return;
+      }
+  
+      // Crear objeto URL temporal para la imagen
+      const img = new Image();
+      const objectUrl = URL.createObjectURL(file);
+      img.src = objectUrl;
+  
+      img.onload = function () {
+        const width = img.naturalWidth;
+        const height = img.naturalHeight;
+  
+        // Liberar memoria del archivo
+        URL.revokeObjectURL(objectUrl);
+  
+        // Validar dimensiones de la imagen
+        if (width !== 2000 || height !== 500) {
+          Swal.fire({
+            icon: "error",
+            title: "Dimensiones incorrectas",
+            text: "La imagen debe tener un ancho de 2000 píxeles y un alto de 500 píxeles.",
+          }).then(() => {
+            imageInputHeader.value = ""; // Limpiar el input de archivo
+            imageInputHeader.focus(); // Regresar el foco al input
+          });
+          return;
+        }
+  
+        // Si la imagen es válida, permitir el envío
+        isSubmitting = true;
+  
+        // Usar submit() de manera correcta (sin prevenirlo más)
+        formHeader.submit(); // Solo se envía el formulario correspondiente
+      };
+  
+      img.onerror = function () {
+        // Liberar memoria del archivo en caso de error
+        URL.revokeObjectURL(objectUrl);
+  
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "El archivo seleccionado no es una imagen válida.",
+        }).then(() => {
+          imageInputHeader.value = ""; // Limpiar el input de archivo
+          imageInputHeader.focus();
+        });
+      };
+    });
+  });
+</script>
+
+
+
+
 
 {% endblock %}

@@ -9,8 +9,15 @@ from datetime import date
 class Project(models.Model):
     title = CharField(max_length=100)
     description = CharField(max_length=250)
-    image = ImageField(upload_to="portfolio/images")
+    image = ImageField(upload_to="productos")
     url = URLField(blank=True)
+    date = DateField(default=date.today)
+
+    def __str__(self) -> str:
+        return self.title
+class ImageHeader(models.Model):
+    title = CharField(max_length=100)
+    image = ImageField(upload_to="headers")
     date = DateField(default=date.today)
 
     def __str__(self) -> str:
