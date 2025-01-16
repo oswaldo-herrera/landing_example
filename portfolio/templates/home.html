@@ -129,15 +129,19 @@
 
 <div class="row g-4 text-center">
   <div class="col-12 col-md-6 " >
-    <img src="{% static 'portfolio/vende_mas.png' %}" class="img-fluid mx-auto d-block" />
+    {% for img in imgSpot %}
+    <img src="{{ img.image.url }}" class="img-fluid mx-auto d-block" />
+    {% endfor %}
   </div>
 
   <div class="col-12 col-md-6  p-4 "  >
-    <h1 class="text-center pt-5"><strong>La mejor manera de vender con tu Página de aterrizaje</strong></h1>
+    {% for txt in txtSpot %}
+    <h1 class="text-center pt-5"><strong>{{txt.title}}</strong></h1>
     
-    <p>"Aqui puede ir algun texto relacionado a la venta"</p>
+    <p>"{{txt.subtitle}}"</p>
     {% comment %} <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/cv.pdf' %}">Download my CV</a> {% endcomment %}
-    <a class="btn btn-success btn-lg rounded-0 my-3 " href="https://w.app/vA0WNK">Quiero mi web</a>
+    <a class="btn btn-success btn-lg rounded-0 my-3 " href="https://w.app/vA0WNK">{{txt.title_boton}}</a>
+    {% endfor %}
   </div>
 </div>
 
@@ -159,7 +163,9 @@
 <!-- Porfolio Section -->
 <div class="row my-4 text-center">
   <hr>
-  <h2>Productos</h2>
+  {% for item in secc_uno %}
+  <h2>{{item.titulo_uno}}</h2>
+  {% endfor %}
   <hr>
   {% comment %} <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam?</p> {% endcomment %}
 
@@ -185,16 +191,20 @@
 
 <div class="row my-4 text-center">
   <hr>
-  <h2>Video</h2>
+  {% for item in secc_dos %}
+  <h2>{{item.titulo_dos}}</h2>
+  {% endfor %}
   <hr>
   <div class="col-12 d-flex justify-content-center video-container">
+    {% for item in video %}
     <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/qjT8rN2buhk" 
+            src="{{ item.embed_url }}" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
     </iframe>
+    {% endfor %}
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-P1Evxj3cP5PiBTfzk5R2e4Paq2C07fTKxtJFtSk7fjSAxXaT2z7QpD96zJe7bBtK" crossorigin="anonymous"></script>

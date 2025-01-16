@@ -1,5 +1,5 @@
 from django import forms
-from .models import Project,ImageHeader
+from .models import Project,ImageHeader,ImagenSpot,TextSpot,TituloSpot,Video,SeccionUno,SeccionDos
 
 class ProjectForm(forms.ModelForm):
     class Meta:
@@ -20,3 +20,58 @@ class ImageHeaderForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),            
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
+
+class ImagenSpotForm(forms.ModelForm):
+    class Meta:
+        model = ImagenSpot
+        fields = ['image','title']
+        widgets = {
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            
+        }
+
+class TextSpotForm(forms.ModelForm):
+    class Meta:
+        model = TextSpot
+        fields = ['title', 'subtitle', 'title_boton']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitle': forms.TextInput(attrs={'class': 'form-control'}),
+            'title_boton': forms.TextInput(attrs={'class': 'form-control'}),
+            
+        }
+class TituloSpotForm(forms.ModelForm):
+    class Meta:
+        model = TituloSpot
+        fields = ['titulo', 'subtitulo', 'boton']
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'boton': forms.TextInput(attrs={'class': 'form-control'}),
+            
+        }
+class SeccionUnoForm(forms.ModelForm):
+    class Meta:
+        model = SeccionUno
+        fields = ['titulo_uno']
+        widgets = {
+            'titulo_uno': forms.TextInput(attrs={'class': 'form-control'}),
+            
+            
+        }
+class SeccionDosForm(forms.ModelForm):
+    class Meta:
+        model = SeccionDos
+        fields = ['titulo_dos']
+        widgets = {
+            'titulo_dos': forms.TextInput(attrs={'class': 'form-control'}),
+            
+            
+        }
+
+class VideoForm(forms.ModelForm):
+    class Meta:
+        model = Video
+        fields = ['title', 'embed_url']
+        
