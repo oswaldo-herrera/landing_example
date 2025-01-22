@@ -2,102 +2,155 @@
 
 {% block content %}
 
-<div class="row">
-  <div class="col">
-    <h1> Crear Imagen Header</h1>
-    <form id="form-header" method="post" enctype="multipart/form-data" class="bg-warning p-3  "  action="{% url 'blog:imagen_header' %}" >
-      {% csrf_token %}
-      {{ image_header_form.as_p }}
-      <p>Titulo</p>
-      {{ form.title }}
-      
-      <p>Agregar Imagen</p>
-      {{ form.image }}
-      <br>
-      <button type="submit" class="btn btn-outline-success btn-sm" id="submit-header">Guardar</button>
-      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
-    </form>
+<div class="accordion " id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Crear Imagen Header
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body bg-dark">
+        <h1 class="d-none"> Crear Imagen Header</h1>
+        <form id="form-header" method="post" enctype="multipart/form-data" class="bg-dark p-3  "  action="{% url 'blog:imagen_header' %}" >
+          {% csrf_token %}
+          {{ image_header_form.as_p }}
+          <p>Titulo</p>
+          {{ form.title }}
+          
+          <p>Agregar Imagen</p>
+          {{ form.image }}
+          <br>
+          <button type="submit" class="btn btn-outline-success btn-sm" id="submit-header">Guardar</button>
+          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+        </form>
+      </div>
+    </div>
   </div>
 
-  <div class="col">
-    <h1> Crear Imagen Spot</h1>
-    <form  method="post" enctype="multipart/form-data" class="bg-warning p-3 " action="{% url 'blog:imagen_spot' %}">
-      {% csrf_token %}
-      {{ image_spot_form.as_p }}      
-      <br>
-      <button type="submit" class="btn btn-outline-success btn-sm"  >Guardar</button>
-      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
-    </form>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Crear Imagen Spot
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body bg-dark">
+        <h1 clas="d-none"> Crear Imagen Spot</h1>
+        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:imagen_spot' %}">
+          {% csrf_token %}
+          {{ image_spot_form.as_p }}      
+          <br>
+          <button type="submit" class="btn btn-outline-success btn-sm"  >Guardar</button>
+          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Crear Texto Spot
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body bg-dark">
+        <h1 class="d-none"> Crear Texto Spot</h1>
+        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:texto_spot' %}" >
+          {% csrf_token %}
+          {{ text_spot_form.as_p }}
+          <br>
+          <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
+          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        Seccion Uno
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+      <div class="accordion-body bg-dark">
+        <h1 class="d-none">Seccion Uno</h1>
+        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:seccion_uno' %}">
+          {% csrf_token %}
+          {{ seccion_uno_form.as_p }}
+          
+          <button type="submit" class="btn btn-outline-success btn-sm"  >Guardar</button>
+          <a href="{% url 'home' %}" class="btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        Seccion Dos
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+      <div class="accordion-body bg-dark">
+        <h1 class="d-none"> Seccion Dos</h1>
+        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:seccion_dos' %}" >
+          {% csrf_token %}
+          {{ seccion_dos_form.as_p }}
+          <br>
+          <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
+          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSix">
+      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        Subir Video
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+      <div class="accordion-body bg-dark">
+        <h1 class="d-none"> Subir Video</h1>
+        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:video_view' %}" >
+          {% csrf_token %}
+          {{ video_form.as_p }}
+          <br>
+          <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
+          <a href="{% url 'home' %}" class="btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSeven">
+      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+        Crear Producto
+      </button>
+    </h2>
+    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+      <div class="accordion-body bg-dark">
+        <h1 class="d-none">{{ view.action }} Crear Producto</h1>
+        <form id="form-producto" method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:crear_portafolio' %}">
+          {% csrf_token %}
+          {{ project_form.as_p }}
+          
+          <button type="submit" class="btn btn-outline-success btn-sm"  id="submit-producto">Guardar</button>
+          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="row">
 
-  <div class="col">
-    <h1> Crear Texto Spot</h1>
-    <form  method="post" enctype="multipart/form-data" class="bg-warning p-3 " action="{% url 'blog:texto_spot' %}" >
-      {% csrf_token %}
-      {{ text_spot_form.as_p }}
-      <br>
-      <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
-      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
-    </form>
-  </div>
-
-  <div class="col">
-    <h1>Seccion Uno</h1>
-    <form  method="post" enctype="multipart/form-data" class="bg-warning p-3 " action="{% url 'blog:seccion_uno' %}">
-      {% csrf_token %}
-      {{ seccion_uno_form.as_p }}
-      
-      <button type="submit" class="btn btn-outline-success btn-sm"  >Guardar</button>
-      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
-    </form>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="col">
-    <h1> Seccion Dos</h1>
-    <form  method="post" enctype="multipart/form-data" class="bg-warning p-3 " action="{% url 'blog:seccion_dos' %}" >
-      {% csrf_token %}
-      {{ seccion_dos_form.as_p }}
-      <br>
-      <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
-      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
-    </form>
-  </div>
-
-  <div class="col">
-    <h1> Subir Video</h1>
-    <form  method="post" enctype="multipart/form-data" class="bg-warning p-3 " action="{% url 'blog:video_view' %}" >
-      {% csrf_token %}
-      {{ video_form.as_p }}
-      <br>
-      <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
-      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
-    </form>
-  </div>
-
-</div>
-<div class="row">
-
-  <div class="col">
-    <h1>{{ view.action }} Crear Producto</h1>
-    <form id="form-producto" method="post" enctype="multipart/form-data" class="bg-warning p-3 " action="{% url 'blog:crear_portafolio' %}">
-      {% csrf_token %}
-      {{ project_form.as_p }}
-      
-      <button type="submit" class="btn btn-outline-success btn-sm"  id="submit-producto">Guardar</button>
-      <a href="{% url 'home' %}" class="text-dark btn btn-outline-warning btn-sm border-secondary ">Cancelar</a>
-    </form>
-  </div>
-
-  <div class="col">
-    
-  </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
