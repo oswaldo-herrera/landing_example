@@ -57,7 +57,9 @@ class SeccionDos(models.Model):
 
 class Video(models.Model):
     title = models.CharField(max_length=200, verbose_name="Título del Video")
-    embed_url = models.URLField(verbose_name="URL del Video")
+    embed_url = models.URLField(verbose_name="URL del Video",blank=True,null=True)
+    video_file = models.FileField(upload_to="videos/", verbose_name="Archivo MP4", blank=True, null=True)
+
 
     def __str__(self):
         return self.title

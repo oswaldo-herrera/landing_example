@@ -73,5 +73,5 @@ class SeccionDosForm(forms.ModelForm):
 class VideoForm(forms.ModelForm):
     class Meta:
         model = Video
-        fields = ['title', 'embed_url']
+        fields = ['title', 'embed_url', 'video_file']
         

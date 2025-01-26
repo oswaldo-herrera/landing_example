@@ -127,21 +127,26 @@
 </div> {% endcomment %}
 
 
-<div class="row g-4 text-center">
-  <div class="col-12 col-md-6 " >
-    {% for img in imgSpot %}
-    <img src="{{ img.image.url }}" class="img-fluid mx-auto d-block" />
-    {% endfor %}
+<div class="row g-4 text-center mt-2">
+  <div class="col-12 col-md-6 w-25 mx-auto" >
+    {% if imgSpot %}
+      <img src="{{ imgSpot.image.url }}" class="img-fluid mx-auto d-block" />
+    {% else %}
+      <p>No hay imagen disponible.</p>
+    {% endif %}
   </div>
 
   <div class="col-12 col-md-6  p-4 "  >
-    {% for txt in txtSpot %}
-    <h1 class="text-center pt-5"><strong>{{txt.title}}</strong></h1>
+    {% if txtSpot %}
+    <h1 class="text-center pt-5"><strong>{{txtSpot.title}}</strong></h1>
     
-    <p>"{{txt.subtitle}}"</p>
+    <p>"{{txtSpot.subtitle}}"</p>
     {% comment %} <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/cv.pdf' %}">Download my CV</a> {% endcomment %}
-    <a class="btn btn-success btn-lg rounded-0 my-3 " href="https://w.app/vA0WNK">{{txt.title_boton}}</a>
-    {% endfor %}
+    <a class="btn btn-success btn-lg rounded-0 my-3 " href="https://w.app/vA0WNK">{{txtSpot.title_boton}}</a>
+    {% else %}
+      <p>No hay texto disponible.</p>
+    {% endif %}
+    
   </div>
 </div>
 
@@ -163,9 +168,9 @@
 <!-- Porfolio Section -->
 <div class="row my-4 text-center">
   <hr>
-  {% for item in secc_uno %}
-  <h2>{{item.titulo_uno}}</h2>
-  {% endfor %}
+  {% if secc_uno %}
+    <h2>{{secc_uno.titulo_uno}}</h2>
+  {% endif %}
   <hr>
   {% comment %} <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam?</p> {% endcomment %}
 
@@ -191,20 +196,31 @@
 
 <div class="row my-4 text-center">
   <hr>
-  {% for item in secc_dos %}
-  <h2>{{item.titulo_dos}}</h2>
-  {% endfor %}
+  {% if secc_dos %}
+  <h2>{{secc_dos.titulo_dos}}</h2>
+  {% endif %}
   <hr>
   <div class="col-12 d-flex justify-content-center video-container">
-    {% for item in video %}
-    <iframe width="560" height="315" 
-            src="{{ item.embed_url }}" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-    </iframe>
-    {% endfor %}
+    {% if video %}
+      {% if video.video_file %}
+        <!-- Reproducir video MP4 -->
+        <video width="560" height="315" controls>
+          <source src="{{ video.video_file.url }}" type="video/mp4">
+          Tu navegador no soporta el reproductor de video.
+        </video>
+      {% elif video.embed_url %}
+        <!-- Reproducir video de YouTube -->
+        <iframe width="560" height="315" 
+                src="{{ video.embed_url }}" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      {% endif %}
+    {% else %}
+      <p>No hay video disponible.</p>
+    {% endif %}
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-P1Evxj3cP5PiBTfzk5R2e4Paq2C07fTKxtJFtSk7fjSAxXaT2z7QpD96zJe7bBtK" crossorigin="anonymous"></script>
