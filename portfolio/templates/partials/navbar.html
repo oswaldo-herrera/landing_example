@@ -9,14 +9,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
+        <li class="nav-item d-none">
           <a class="nav-link" href="{% url 'blog:posts' %}">Posts</a>
         </li>
+        {% if request.user.is_superuser %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:dashboard_forms' %}">Dashboard</a>
+          <a class="nav-link" href="{% url 'blog:dashboard_forms' %}">Panel de Administración</a>
         </li>
+        {% endif %}
+        
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+        
         <li class="nav-item d-flex align-items-center">
-          <a class="btn btn-primary btn-sm" href="{% static 'portfolio/cv.pdf' %}" target="_blank">Download CV</a>
+          <a class="btn btn-success btn-sm" href="{% static 'portfolio/cv.pdf' %}" target="_blank">Catálgo Productos</a>
         </li>
       </ul>
     </div>
