@@ -151,6 +151,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",  # Aquí defines dónde están los archivos estáticos en tu proyecto
+    BASE_DIR / "plugin",
 ]
 
 # Default primary key field type
