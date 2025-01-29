@@ -8,6 +8,25 @@
 <link rel="stylesheet" href="{% static 'whatsapp-chat-support.css' %}">
 
 <style>
+
+  .section {
+    width: 100%;
+    height: 500px; /* Ajusta la altura según tus necesidades */
+    overflow: hidden; /* Para asegurar que la imagen no sobresalga */
+  }
+
+  .full-width-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen cubra el área sin distorsionarse */
+  }
+
+  .full-width-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen cubra el área sin distorsionarse */
+  }
+
   .cristal{
     width:80%;
     background:rgba(255,255,255,0.30);
@@ -66,39 +85,8 @@
 
 <!-- Hero Section -->
 
-<div class="row">
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <!-- Indicadores dinámicos -->
-    <div class="carousel-indicators">
-      {% for image in imgHeader %}
-      <button type="button" 
-              data-bs-target="#carouselExampleIndicators" 
-              data-bs-slide-to="{{ forloop.counter0 }}" 
-              class="{% if forloop.first %}active{% endif %}" 
-              aria-current="{% if forloop.first %}true{% endif %}" 
-              aria-label="Slide {{ forloop.counter }}"></button>
-      {% endfor %}
-    </div>
-
-    <!-- Contenido dinámico del carrusel -->
-    <div class="carousel-inner">
-      {% for image in imgHeader %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <img src="{{ image.image.url }}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
-      </div>
-      {% endfor %}
-    </div>
-
-    <!-- Controles del carrusel -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+<div class="section">
+  <img src="{{ imgHeader.image.url }}" class="full-width-img " alt="Slide {{ forloop.counter }}">  
 </div>
 {% comment %} <div class="row">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -145,7 +133,10 @@
     
     <p>"{{txtSpot.subtitle}}"</p>
     {% comment %} <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/cv.pdf' %}">Download my CV</a> {% endcomment %}
-    <a class="btn btn-success btn-lg rounded-0 my-3 " href="https://w.app/vA0WNK">{{txtSpot.title_boton}}</a>
+    {% comment %} <a class="btn btn-success btn-lg rounded-0 my-3 " href="https://w.app/vA0WNK">{{txtSpot.title_boton}}</a> {% endcomment %}
+    
+    <a class="btn btn-success btn-sm" href="{% static 'portfolio/cv.pdf' %}" target="_blank">{{txtSpot.title_boton}}</a>
+    
     {% else %}
       <p>No hay texto disponible.</p>
     {% endif %}

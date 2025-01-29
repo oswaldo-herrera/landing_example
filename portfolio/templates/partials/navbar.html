@@ -1,6 +1,12 @@
 {% load static %}
+<style>
+  .fondo{
+    background-color:rgba(69, 69, 70, 0.69);
+  }
+</style>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+
+<nav class="navbar navbar-expand-lg navbar-dark fondo fixed-top">
   <div class="container">
     <a class="navbar-brand fw-bold fst-italic" href="/">ViVi cookies</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,9 +34,7 @@
         </li>
         {% endif %}
         
-        <li class="nav-item d-flex align-items-center">
-          <a class="btn btn-success btn-sm" href="{% static 'portfolio/cv.pdf' %}" target="_blank">Descargar Catálogo</a>
-        </li>
+        
       </ul>
     </div>
   </div>

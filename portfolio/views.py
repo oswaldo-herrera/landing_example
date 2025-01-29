@@ -4,7 +4,7 @@ from .models import Project,ImageHeader,ImagenSpot,TituloSpot,TextSpot,SeccionUn
 
 def home(request):
     projects = Project.objects.all()
-    imgHeader = ImageHeader.objects.all()
+    imgHeader = ImageHeader.objects.last()
     imgSpot = ImagenSpot.objects.last()
     txtSpot = TextSpot.objects.last()
     secc_uno = SeccionUno.objects.last()

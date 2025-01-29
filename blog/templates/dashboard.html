@@ -2,151 +2,164 @@
 
 {% block content %}
 
-<div class="accordion " id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Crear Imagen Header
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body bg-dark">
-        <h1 class="d-none"> Crear Imagen Header</h1>
-        <form id="form-header" method="post" enctype="multipart/form-data" class="bg-dark p-3  "  action="{% url 'blog:imagen_header' %}" >
-          {% csrf_token %}
-          {{ image_header_form.as_p }}
-          <p>Titulo</p>
-          {{ form.title }}
-          
-          <p>Agregar Imagen</p>
-          {{ form.image }}
-          <br>
-          <button type="submit" class="btn btn-outline-success btn-sm" id="submit-header">Guardar</button>
-          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
-        </form>
-      </div>
-    </div>
+<style>
+  .text-xs{
+    font-size: 13px;
+  }
+</style>
+
+<div class="mt-4 pt-5">
+  <div class="mt-2 mb-3">
+    <h4>Panel de Administración </h4>
+    <span class="text-xs"> Aqui podrás cambiar las imagenes de cada sección de tu página web</span>
   </div>
 
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Crear Imagen Spot
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body bg-dark">
-        <h1 clas="d-none"> Crear Imagen Spot</h1>
-        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:imagen_spot' %}">
-          {% csrf_token %}
-          {{ image_spot_form.as_p }}      
-          <br>
-          <button type="submit" class="btn btn-outline-success btn-sm"  >Guardar</button>
-          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
-        </form>
+  <div class="accordion " id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Imagen Principal  <span class=""> : Es la primera imagen que se muestra grande al inicio de la pagina web </span>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body bg-dark">
+          <h1 class="d-none"> Crear Imagen Header</h1>
+          <form id="form-header" method="post" enctype="multipart/form-data" class="bg-dark p-3  "  action="{% url 'blog:imagen_header' %}" >
+            {% csrf_token %}
+            {{ image_header_form.as_p }}
+            <p>Titulo</p>
+            {{ form.title }}
+            
+            <p>Agregar Imagen</p>
+            {{ form.image }}
+            <br>
+            <button type="submit" class="btn btn-outline-success btn-sm" id="submit-header">Guardar</button>
+            <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Crear Texto Spot
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body bg-dark">
-        <h1 class="d-none"> Crear Texto Spot</h1>
-        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:texto_spot' %}" >
-          {% csrf_token %}
-          {{ text_spot_form.as_p }}
-          <br>
-          <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
-          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingFive">
-      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-        Seccion Uno
-      </button>
-    </h2>
-    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-      <div class="accordion-body bg-dark">
-        <h1 class="d-none">Seccion Uno</h1>
-        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:seccion_uno' %}">
-          {% csrf_token %}
-          {{ seccion_uno_form.as_p }}
-          
-          <button type="submit" class="btn btn-outline-success btn-sm"  >Guardar</button>
-          <a href="{% url 'home' %}" class="btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingFour">
-      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-        Seccion Dos
-      </button>
-    </h2>
-    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-      <div class="accordion-body bg-dark">
-        <h1 class="d-none"> Seccion Dos</h1>
-        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:seccion_dos' %}" >
-          {% csrf_token %}
-          {{ seccion_dos_form.as_p }}
-          <br>
-          <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
-          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
-        </form>
-      </div>
-    </div>
-  </div>
-
   
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingSix">
-      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-        Subir Video
-      </button>
-    </h2>
-    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-      <div class="accordion-body bg-dark">
-        <h1 class="d-none"> Subir Video</h1>
-        <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:video_view' %}" >
-          {% csrf_token %}
-          {{ video_form.as_p }}
-          <br>
-          <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
-          <a href="{% url 'home' %}" class="btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
-        </form>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Imagen Segunda Sección <span class=""> : Es la imagen que se muestra del lado izquierdo abajo de la principal </span>
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body bg-dark">
+          <h1 class="d-none"> Crear Imagen Spot</h1>
+          <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:imagen_spot' %}">
+            {% csrf_token %}
+            {{ image_spot_form.as_p }}      
+            <br>
+            <button type="submit" class="btn btn-outline-success btn-sm"  >Guardar</button>
+            <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingSeven">
-      <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-        Crear Producto
-      </button>
-    </h2>
-    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-      <div class="accordion-body bg-dark">
-        <h1 class="d-none">{{ view.action }} Crear Producto</h1>
-        <form id="form-producto" method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:crear_portafolio' %}">
-          {% csrf_token %}
-          {{ project_form.as_p }}
-          
-          <button type="submit" class="btn btn-outline-success btn-sm"  id="submit-producto">Guardar</button>
-          <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
-        </form>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Encabezado Segunda Sección <span class=""> : Es la parte que se compone de un titulo, subtitulo y el texto del boton de descargar el catálago </span>
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body bg-dark">
+          <h1 class="d-none"> Crear Texto Spot</h1>
+          <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:texto_spot' %}" >
+            {% csrf_token %}
+            {{ text_spot_form.as_p }}
+            <br>
+            <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
+            <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+          </form>
+        </div>
       </div>
     </div>
+  
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFive">
+        <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Primer Titulo <span class=""> : Es el titulo que esta entre las lineas  </span>
+        </button>
+      </h2>
+      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+        <div class="accordion-body bg-dark">
+          <h1 class="d-none">Seccion Uno</h1>
+          <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:seccion_uno' %}">
+            {% csrf_token %}
+            {{ seccion_uno_form.as_p }}
+            
+            <button type="submit" class="btn btn-outline-success btn-sm"  >Guardar</button>
+            <a href="{% url 'home' %}" class="btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Segundo Titulo <span class=""> : Es el segundo titulo que esta entre las lineas  </span>
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+        <div class="accordion-body bg-dark">
+          <h1 class="d-none"> Seccion Dos</h1>
+          <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:seccion_dos' %}" >
+            {% csrf_token %}
+            {{ seccion_dos_form.as_p }}
+            <br>
+            <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
+            <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingSeven">
+        <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          Crear Producto <span class=""> : Aqui creas los productos que se enlistaran   </span>
+        </button>
+      </h2>
+      <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+        <div class="accordion-body bg-dark">
+          <h1 class="d-none">{{ view.action }} Crear Producto</h1>
+          <form id="form-producto" method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:crear_portafolio' %}">
+            {% csrf_token %}
+            {{ project_form.as_p }}
+            
+            <button type="submit" class="btn btn-outline-success btn-sm"  id="submit-producto">Guardar</button>
+            <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingSix">
+        <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Subir Video <span class=""> : Aqui puedes subir videos guardados de tu PC o Celular y tambien de Youtube    </span>
+        </button>
+      </h2>
+      <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+        <div class="accordion-body bg-dark">
+          <h1 class="d-none"> Subir Video</h1>
+          <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:video_view' %}" >
+            {% csrf_token %}
+            {{ video_form.as_p }}
+            <br>
+            <button type="submit" class="btn btn-outline-success btn-sm" >Guardar</button>
+            <a href="{% url 'home' %}" class="btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    
   </div>
 </div>
 
