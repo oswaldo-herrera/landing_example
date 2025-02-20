@@ -5546,6 +5546,7 @@ html.rd-navbar-fixed-linked header {
     height: 350px;
     margin: 20px;
 	padding: 10px;
+	
 }
 
 .card .face {
@@ -5556,6 +5557,7 @@ html.rd-navbar-fixed-linked header {
     border-radius: 10px;
     overflow: hidden;
     transition: 1s ease-out;
+	
 }
 
 .card .front {
@@ -5625,6 +5627,12 @@ html.rd-navbar-fixed-linked header {
 .owl-carousel .card {
     width: 300px; /* Ajusta el tamaño de las tarjetas */
     margin: 10px;
+	
+}
+
+.owl-carousel .owl-prev{
+	color: #000;
+	background-color: #000 !important;
 }
 
 

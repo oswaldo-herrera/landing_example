@@ -191,7 +191,7 @@
               {% comment %} unit-left list-index-counter {% endcomment %}
               <div class="unit-left list-index-counter">
                 <div class="list-classic-rectangle"></div>
-                <div class="icon novi-icon linearicons-users2 icon-xl"></div>
+                
               </div>
               <div class="unit-body">
                 <h4>Professional Team</h4>
@@ -200,8 +200,8 @@
             </li>
             <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight" data-wow-delay=".8s">
               <div class="unit-left list-index-counter">
-                <div class="list-classic-rectangle"></div>
-                <div class="icon novi-icon linearicons-lamp icon-lg"></div>
+                <div class="list-classic-rectangle border "></div>
+                
               </div>
               <div class="unit-body">
                 <h4>Unusual Ideas</h4>
@@ -210,8 +210,8 @@
             </li>
             <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight" data-wow-delay=".9s">
               <div class="unit-left list-index-counter">
-                <div class="list-classic-rectangle"></div>
-                <div class="icon novi-icon linearicons-heart icon-lg"></div>
+                <div class="list-classic-rectangle "></div>
+                
               </div>
               <div class="unit-body">
                 <h4>Made with Respect</h4>
@@ -242,15 +242,15 @@
   </div>
 
   <div class="container container-custom-right d-flex">
-    <div class="owl-carousel owl-theme">
+    <div class="owl-carousel owl-theme bg-dark">
       {% for project in projects %}
-      <div class="card ">
+      <div class="card bg-dark">
         <div class="face front">
             <img src="{{project.image.url }}" alt="">
-            <h3>{{ project.title }}</h3>
+            <h3 style="font-size:20px;">{{ project.title|upper }}</h3>
         </div>
         <div class="face back">
-            <h3 class="text-white">{{ project.title }}</h3>
+            <h3 class="text-white" style="font-size:20px;">{{ project.title|upper }}</h3>
             <p class="text-white">{{ project.description }}</p>
             <div class="link">
               <a href="#"></a>
@@ -320,7 +320,7 @@
       </div>
       <div class="wcs_popup_header">
           <span class="fa fa-whatsapp"></span>
-          <strong>Viví Cookies</strong>
+          <strong>OSHER</strong>
           
           <div class="wcs_popup_header_description">¿Necesitas ayuda? Chatea con nosotros en Whatsapp</div>
 
@@ -367,7 +367,7 @@
         </ul>
       </div>
     </div>
-    <div class="footer-classic-logo-wrap"><a class="brand" href="index.html"><img src="images/logo-default-189x35.png" alt="logotipo" width="189" height="35"/></a>
+    <div class="footer-classic-logo-wrap"><a class="brand" href="#"><img src="images/logo-default-189x35.png" alt="logotipo" width="189" height="35"/></a>
     </div>
     <p class="rights"><span>&copy;&nbsp; </span><span class="copyright-year"></span><span>&nbsp;</span><span>OSHER</span><span>. All Rights Reserved. Design by OSHER</span></p>
   </div>
@@ -392,7 +392,8 @@
           margin: 20,
           nav: true, /* Activa las flechas */
           dots: false, /* Desactiva los puntos */
-          navText: ["<span class='owl-prev'>&#10094;</span>", "<span class='owl-next'>&#10095;</span>"],
+          //navText: ["<span class='owl-prev'>&#10094;</span>", "<span class='owl-next'>&#10095;</span>"],
+          navText: ["<span class='owl-prev text-dark'>&#10094;</span>", "<span class='owl-next text-dark'>&#10095;</span>"],
           responsive: {
               0: { items: 1 },
               768: { items: 2 },
