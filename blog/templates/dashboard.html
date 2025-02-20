@@ -3,12 +3,16 @@
 {% block content %}
 
 <style>
+  body{
+    background:#9c9c9c;
+    
+  }
   .text-xs{
     font-size: 13px;
   }
 </style>
 
-<div class="mt-4 pt-5">
+<div class="mt-4 pt-5 p-5 border">
   <div class="mt-2 mb-3">
     <h4>Panel de Administración </h4>
     <span class="text-xs"> Aqui podrás cambiar las imagenes de cada sección de tu página web</span>
@@ -18,20 +22,16 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Imagen Principal  <span class=""> : Es la primera imagen que se muestra grande al inicio de la pagina web </span>
+          Imagen Principal 
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body bg-dark">
           <h1 class="d-none"> Crear Imagen Header</h1>
-          <form id="form-header" method="post" enctype="multipart/form-data" class="bg-dark p-3  "  action="{% url 'blog:imagen_header' %}" >
+          <form id="form-headers" method="post" enctype="multipart/form-data" class="bg-dark p-3  "  action="{% url 'blog:imagen_header' %}" >
             {% csrf_token %}
             {{ image_header_form.as_p }}
-            <p>Titulo</p>
-            {{ form.title }}
-            
-            <p>Agregar Imagen</p>
-            {{ form.image }}
+           
             <br>
             <button type="submit" class="btn btn-outline-success btn-sm" id="submit-header">Guardar</button>
             <a href="{% url 'home' %}" class=" btn btn-outline-danger btn-sm border-secondary ">Cancelar</a>
@@ -43,7 +43,7 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingTwo">
         <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Imagen Segunda Sección <span class=""> : Es la imagen que se muestra del lado izquierdo abajo de la principal </span>
+          Imagen Segunda Sección 
         </button>
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">

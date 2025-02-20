@@ -6,8 +6,8 @@
 </style>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark fondo fixed-top">
-  <div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark fondo fixed-top w-100">
+  <div class="container-fluid ">
     <a class="navbar-brand fw-bold fst-italic" href="/">ViVi cookies</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +20,13 @@
         </li>
         {% if request.user.is_superuser %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:dashboard_forms' %}">Panel de Administración</a>
+          <a class="nav-link fw-bold fst-italic" href="{% url 'blog:dashboard_forms' %}">Panel de Administración</a>
         </li>
         {% endif %}
         
         {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          <a class="nav-link fw-bold fst-italic" href="{% url 'logout' %}">Logout</a>
         </li>
         {% else %}
         <li class="nav-item">
