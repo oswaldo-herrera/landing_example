@@ -150,13 +150,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Aquí defines dónde están los archivos estáticos en tu proyecto
-    BASE_DIR / "plugin",
+    os.path.join(BASE_DIR, 'portfolio', 'static'),
+    os.path.join(BASE_DIR, 'plugin'),
 ]
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",  # Aquí defines dónde están los archivos estáticos en tu proyecto
+#     BASE_DIR / "plugin",
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
