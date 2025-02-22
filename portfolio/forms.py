@@ -24,21 +24,31 @@ class ImageHeaderForm(forms.ModelForm):
 class ImagenSpotForm(forms.ModelForm):
     class Meta:
         model = ImagenSpot
-        fields = ['image','title']
+        fields = ['image','imagen_dos','imagen_tres','imagen_cuatro','title']
         widgets = {
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'imagen_dos': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'imagen_tres': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'imagen_cuatro': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             
         }
 
 class TextSpotForm(forms.ModelForm):
     class Meta:
         model = TextSpot
-        fields = ['title', 'subtitle', 'title_boton']
+        fields = ['title', 'subtitle', 'title_boton','subtitulo_segunda_seccion','titulo_uno','subtitulo_uno','titulo_dos','subtitulo_dos','titulo_tres','subtitulo_tres']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'subtitle': forms.TextInput(attrs={'class': 'form-control'}),
             'title_boton': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo_segunda_seccion': forms.TextInput(attrs={'class': 'form-control'}),
+            'titulo_uno': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo_uno': forms.TextInput(attrs={'class': 'form-control'}),
+            'titulo_dos': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo_dos': forms.TextInput(attrs={'class': 'form-control'}),
+            'titulo_tres': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo_tres': forms.TextInput(attrs={'class': 'form-control'}),
             
         }
 class TituloSpotForm(forms.ModelForm):
@@ -54,18 +64,20 @@ class TituloSpotForm(forms.ModelForm):
 class SeccionUnoForm(forms.ModelForm):
     class Meta:
         model = SeccionUno
-        fields = ['titulo_uno']
+        fields = ['titulo_uno','subtitulo_uno']
         widgets = {
             'titulo_uno': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo_uno': forms.TextInput(attrs={'class': 'form-control'}),
             
             
         }
 class SeccionDosForm(forms.ModelForm):
     class Meta:
         model = SeccionDos
-        fields = ['titulo_dos']
+        fields = ['titulo_dos','subtitulo_dos']
         widgets = {
             'titulo_dos': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo_dos': forms.TextInput(attrs={'class': 'form-control'}),
             
             
         }

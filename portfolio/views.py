@@ -11,3 +11,10 @@ def home(request):
     secc_dos = SeccionDos.objects.last()
     video = Video.objects.last()
     return render(request, "home.html", {"projects": projects, "imgHeader": imgHeader,"imgSpot":imgSpot,"txtSpot":txtSpot,"secc_uno":secc_uno,"secc_dos":secc_dos,"video":video})
+
+
+def politicasPrivacidad(request):
+    return render(request, "politicas.html")
+
+def politicasCookies(request):
+    return render(request, "cookies.html")

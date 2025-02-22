@@ -149,11 +149,11 @@
           <div class="col-xs-4 maw-29">
             <div class="row row-41">
               <div class="col-12 ">
-                <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".7s"><img class="mt-112 border-redondo-derecho" src="{{ imgHeader.image.url }}" alt="" width="226" height="261"/>
+                <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".7s"><img class="mt-112 border-redondo-derecho" src="{{ imgSpot.imagen_dos.url }}" alt="" width="226" height="261"/>
                 </div>
               </div>
               <div class="col-12">
-                <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".8s"><img class="border-redondo-derecho" src="{{ imgHeader.image.url }}" alt="" width="226" height="564"/>
+                <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".8s"><img class="border-redondo-derecho" src="{{ imgSpot.imagen_tres.url }}" alt="" width="226" height="564"/>
                 </div>
               </div>
             </div>
@@ -165,8 +165,8 @@
                   <div class="box-custom-3-container">
                     <div class="box-custom-3-wrap">
                       <div class="box-custom-3-item">
-                        <p class="box-custom-3-name">Alice Merton</p>
-                        <p class="box-custom-3-position">Founder of “Interia”</p>
+                        <p class="box-custom-3-name">{{txtSpot.title}}</p>
+                        <p class="box-custom-3-position">{{txtSpot.subtitle}}</p>
                       </div>
                     </div>
                   </div>
@@ -175,7 +175,7 @@
               <div class="col-md-7">
                 <div class="box-custom-3 box-custom-3-border wow fadeInLeft" data-wow-delay=".6s">
                   <div class="box-custom-3-border-dashed"></div>
-                  <div class="box-custom-3-border-angel"></div><img class="border-redondo" src="{{ imgHeader.image.url }}" alt="" width="257" height="261"/>
+                  <div class="box-custom-3-border-angel"></div><img class="border-redondo" src="{{ imgSpot.imagen_cuatro.url }}" alt="" width="257" height="261"/>
                 </div>
               </div>
             </div>
@@ -184,8 +184,8 @@
       </div>
       <div class="col-lg-5 col-xxl-4">
         <div class="box-custom-2">
-          <h2 class="wow fadeInRight" data-wow-delay=".5s">{{txtSpot.title}}</h2>
-          <p class="wow fadeInRight" data-wow-delay=".6s">{{txtSpot.subtitle}}</p>
+          <h2 class="wow fadeInRight" data-wow-delay=".5s">{{txtSpot.title_boton}}</h2>
+          <p class="wow fadeInRight" data-wow-delay=".6s">{{txtSpot.subtitulo_segunda_seccion}}</p>
           <ul class="list index-list list-classic-wrap">
             <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight" data-wow-delay=".7s">
               {% comment %} unit-left list-index-counter {% endcomment %}
@@ -194,8 +194,8 @@
                 
               </div>
               <div class="unit-body">
-                <h4>Professional Team</h4>
-                <p>Our team includes only the best decorators and interior designers in the industry.</p>
+                <h4>{{txtSpot.titulo_uno}}</h4>
+                <p>{{txtSpot.subtitulo_uno}}</p>
               </div>
             </li>
             <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight" data-wow-delay=".8s">
@@ -204,8 +204,8 @@
                 
               </div>
               <div class="unit-body">
-                <h4>Unusual Ideas</h4>
-                <p>Our designers generate various yet always original ideas that will surely fit your needs.</p>
+                <h4>{{txtSpot.titulo_dos}}</h4>
+                <p>{{txtSpot.subtitulo_dos}}</p>
               </div>
             </li>
             <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight" data-wow-delay=".9s">
@@ -214,8 +214,8 @@
                 
               </div>
               <div class="unit-body">
-                <h4>Made with Respect</h4>
-                <p>All our work is built around respect to our clients, great service, and creativity.</p>
+                <h4>{{txtSpot.titulo_tres}}</h4>
+                <p>{{txtSpot.subtitulo_tres}}</p>
               </div>
             </li>
           </ul><a class="button button-primary button-shadow wow fadeInRight d-none" data-wow-delay="1s" href="#">Get a Quote</a>
@@ -236,7 +236,7 @@
         <h2 class="text-white">{{secc_uno.titulo_uno}}</h2>
       </div>
       <div class="col-xl-6 col-md-6 wow fadeInRight" data-wow-delay=".2s">
-        <h4 class="text-white">All our projects are unique and designed to last. Take a look at our recent works to find it out for yourself.</h4>
+        <h4 class="text-white">{{secc_uno.subtitulo_uno}}</h4>
       </div>
     </div>
   </div>
@@ -296,7 +296,7 @@
     </div>
     <div class="col ">
       <p class="marginbottom"></p>
-      <h4>All our projects are unique and designed to last. Take a look at our recent works to find it out for yourself.</h4>
+      <h4>{{secc_dos.subtitulo_dos}}</h4>
       <p></p>
     </div>
   </div>
@@ -344,6 +344,8 @@
         <p class="footer-classic-title">Nuestra Dirección</p>
         <ul class="footer-classic-list">
           <li>Villa Carolina #147, Candora Urbanidad, León Gto.</li>
+          <li><a class="" href="{% url 'politicas' %}">Aviso de Privacidad</a></li>
+          <li><a class="" href="{% url 'cookies' %}">Politica Cookies</a></li>
         </ul>
       </div>
       <div class="col-xl-2 col-lg-2 col-sm-6">

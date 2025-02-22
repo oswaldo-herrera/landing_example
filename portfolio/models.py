@@ -24,6 +24,9 @@ class ImageHeader(models.Model):
 
 class ImagenSpot(models.Model):
     image = ImageField(upload_to="spots")
+    imagen_dos = ImageField(upload_to="spots",blank=True,null=True)
+    imagen_tres = ImageField(upload_to="spots",blank=True,null=True)
+    imagen_cuatro = ImageField(upload_to="spots",blank=True,null=True)
     date = DateField(default=date.today)
     title = CharField(max_length=100)
     
@@ -34,9 +37,19 @@ class TextSpot(models.Model):
     title = CharField(max_length=100)
     subtitle = CharField(max_length=100)
     title_boton = CharField(max_length=100)
+    subtitulo_segunda_seccion = CharField(max_length=100,blank=True,null=True)
+    titulo_uno = CharField(max_length=100,blank=True,null=True)
+    subtitulo_uno = CharField(max_length=100,blank=True,null=True)
+    titulo_dos = CharField(max_length=100,blank=True,null=True)
+    subtitulo_dos = CharField(max_length=100,blank=True,null=True)
+    titulo_tres = CharField(max_length=100,blank=True,null=True)
+    subtitulo_tres = CharField(max_length=100,blank=True,null=True)
+    
 
     def __str__(self):
         return str(self.title)
+    
+#### ya no esta en uso ###
 class TituloSpot(models.Model):
     titulo = models.CharField(max_length=100,null=True,blank=True)
     subtitulo = models.CharField(max_length=100,null=True,blank=True)
@@ -44,13 +57,17 @@ class TituloSpot(models.Model):
 
     def __str__(self):
         return str(self.titulo)
+#### ya no esta en uso ###
+
 class SeccionUno(models.Model):
     titulo_uno = models.CharField(max_length=100,null=True,blank=True)
+    subtitulo_uno = models.CharField(max_length=100,null=True,blank=True)
     
     def __str__(self):
         return str(self.titulo_uno)
 class SeccionDos(models.Model):
     titulo_dos = models.CharField(max_length=100,null=True,blank=True)
+    subtitulo_dos = models.CharField(max_length=100,null=True,blank=True)
     
     def __str__(self):
         return str(self.titulo_dos)

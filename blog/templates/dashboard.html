@@ -27,7 +27,7 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body bg-dark">
-          <h1 class="d-none"> Crear Imagen Header</h1>
+          <h1 class="d-none"> Cargar Imagen Principal</h1>
           <form id="form-headers" method="post" enctype="multipart/form-data" class="bg-dark p-3  "  action="{% url 'blog:imagen_header' %}" >
             {% csrf_token %}
             {{ image_header_form.as_p }}
@@ -43,12 +43,12 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingTwo">
         <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Imagen Segunda Sección 
+          Imàgenes Segunda Sección 
         </button>
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
         <div class="accordion-body bg-dark">
-          <h1 class="d-none"> Crear Imagen Spot</h1>
+          <h1 class="d-none"> Crear Imàgenes Segunda Secciòn</h1>
           <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:imagen_spot' %}">
             {% csrf_token %}
             {{ image_spot_form.as_p }}      
@@ -62,12 +62,12 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingThree">
         <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Encabezado Segunda Sección <span class=""> : Es la parte que se compone de un titulo, subtitulo y el texto del boton de descargar el catálago </span>
+          Texto Segunda Sección 
         </button>
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body bg-dark">
-          <h1 class="d-none"> Crear Texto Spot</h1>
+          <h1 class="d-none"> Crear Texto Segunda Secciòn</h1>
           <form  method="post" enctype="multipart/form-data" class="bg-dark p-3 " action="{% url 'blog:texto_spot' %}" >
             {% csrf_token %}
             {{ text_spot_form.as_p }}
